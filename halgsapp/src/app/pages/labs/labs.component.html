@@ -1,0 +1,65 @@
+<div class="container">
+
+    <p>labs works!</p>
+    <h1> Muestra Prueba técnica</h1>
+    <h2>{{mensaje_pers}}</h2>
+    <ul>
+        @for (task of tasks; track $index) {
+            <li> {{task}} </li>
+        }
+        
+    </ul>
+    <hr />
+    <h2>{{ 'Hola'.repeat(4) }}</h2>
+    <p> la suma es 3 + 3 es {{3+3}} </p>
+    <p> Hola soy {{person().name}}, y mi edad es {{person().age}} </p>
+    <hr/>
+    <img [src]="person().avatar" alt="">
+    <input type="text" [value]="person().name">
+    <button [disabled]="disabled">Click me</button>
+    <hr/>
+    <p>person: {{person().name}} {{person().apellido}}</p>
+    <p>Mi edad es: {{person().age}} años</p>
+    <img src="{{person().avatar}}" alt="">
+    <hr/>
+    <button (click)="clickhandler()">Click aqui</button>
+    <button (dblclick)="clickhandler()">Doble Click aqui</button>
+    <p>(change)</p>
+    <input type="number" [value]="person().age" (change)="changeAge($event)">
+    <p>(keydown)</p>
+    <input type="text" [value]="person().name" (keydown)="keydownHandler($event)">
+    <hr/>
+    <div>
+
+        <div *ngIf="person().name === 'Henry' && person().age >= 18; else elseBlock">
+            Hola {{ person().name }}, qué bueno que eres mayor de edad.
+        </div>
+          
+        <ng-template #elseBlock>
+        Hola {{ person().name }}, veo que eres menor de edad para hacer el trámite.
+        </ng-template>
+        
+    </div>
+
+    <hr/>
+    <input type="color" [formControl]="colorCtrl">
+    <p>color: {{colorCtrl.value}}</p>
+
+    <svg width="100" height="100">
+        <circle cx="50" cy="50" r="40" [attr.fill]="colorCtrl.value"></circle>
+    </svg>
+
+    <hr/>
+
+    <input type="number" [formControl]="widthCtrl">
+    <span class="box" [style.width.px]="widthCtrl.value"></span>
+
+    <hr/>
+    <p>
+        <input type="text" [formControl]="nameCtrl"> <br/>
+        <span class="message-error" [class.show]="nameCtrl.invalid && nameCtrl.touched"> Nombre invalido</span>
+    </p>
+    <p>
+        <input type="text">
+    </p>
+</div>

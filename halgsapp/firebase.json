@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/halgsapp/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
